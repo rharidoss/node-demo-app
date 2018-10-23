@@ -8,7 +8,7 @@ pipeline {
 sh 'cp ./debian/x.txt ./debian/changelog'
 sh 'echo "#!/bin/bash \
 cd /root; apt-get install -y npm ;git-buildpackage --git-ignore-new --git-ignore-branch; cp ../*.deb ." > install.sh'
-sh 'cat install.sh'
+sh 'chmod 755 install.sh'
 sh '/root/install.sh'
       }
     }
